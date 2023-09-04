@@ -1,9 +1,9 @@
 Facter.add("ss_nessus_agent_connected") do
     setcode do
-      if ! File.exists? "/opt/ss_nessus_agent/sbin/nessuscli"
-        ss_nessus_agent_connected = false
+        if ! File.exists? "/opt/nessus_agent/sbin/nessuscli"
+            ss_nessus_agent_connected = false
         else
-            linkStatus = Facter::Util::Resolution.exec('/opt/ss_nessus_agent/sbin/nessuscli agent status | grep "Link status"')
+            linkStatus = Facter::Util::Resolution.exec('/opt/nessus_agent/sbin/nessuscli agent status | grep "Link status"')
             if linkStatus.match('Link status:')
                 line_parts = linkStatus.split(/(?<=:\s)([^\s]+)/)
                 if line_parts[1] == "Connected" 
