@@ -23,14 +23,16 @@ Once the agent is installed, setup and enabled, you can link/start and unlink/st
 
 ## Parameters
 
-`http_proxy`: a string detailing the proxy host and port ie 'blah.co.nz:111' which if defined, will be added to the curl request to download the nessus agent package
+`http_proxy`: Optional parameter, a string detailing the proxy host and port ie 'blah.co.nz:111' which if defined, will be added to the curl request to download the nessus agent package
 
-`http_proxy_port`: the port used by the proxy
+`http_proxy_port`: Optional parameter, the port used by the proxy
 
-`http_proxy_host`: the host used by the proxy
+`http_proxy_host`: Optional parameter, the host used by the proxy
 
 `link_token`: A parameter which defines the key/token needed to link the nessus agent to tenable cloud
 
 `download_url`: The URL to download the nessus agent package from
 
 `nessus_agent_enabled` A parameter which if set (to true), will install, start, and link the agent to tenable cloud. If not set (or set to anything other than true), it will unlink/stop the agent (if it is currently running/linked)
+
+`environment_name` Optional parameter, if defined will name the agent what is defined (in Tenable Cloud). If not defined, the name will defaulte to the name of the machine where you are installing the agent.
